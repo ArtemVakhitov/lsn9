@@ -22,17 +22,17 @@
     dest: {{ build_root }}
 
 - name: Login to Docker Hub
-    environment: # May be needed just in case here and below
-      PYTHONPATH: "{{ lookup('env','PYTHONPATH') }}:/usr/local/lib/python2.7/dist-packages:/usr/local/lib/python2.7/site-packages"
-    docker_login:
-      email: {{ docker_email }}
-      username: {{ docker_username }}
-      password: "{{ lookup('env', 'DOCKER_PASSWORD') }}"
+  environment: # May be needed just in case here and below
+    PYTHONPATH: "{{ lookup('env','PYTHONPATH') }}:/usr/local/lib/python2.7/dist-packages:/usr/local/lib/python2.7/site-packages"
+  docker_login:
+    email: {{ docker_email }}
+    username: {{ docker_username }}
+    password: "{{ lookup('env', 'DOCKER_PASSWORD') }}"
 
 - name: Build and push the Docker image
-    environment:
-      PYTHONPATH: "{{ lookup('env','PYTHONPATH') }}:/usr/local/lib/python2.7/dist-packages:/usr/local/lib/python2.7/site-packages"
-    docker_image:
-      name: {{ image_name }}
-      push: true
-      path: {{ build_root }}
+  environment:
+    PYTHONPATH: "{{ lookup('env','PYTHONPATH') }}:/usr/local/lib/python2.7/dist-packages:/usr/local/lib/python2.7/site-packages"
+  docker_image:
+    name: {{ image_name }}
+    push: true
+    path: {{ build_root }}
