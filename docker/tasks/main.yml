@@ -6,9 +6,7 @@
 
   tasks:
     - name: Ensure docker.io and pip packages are present
-      apt: name={{ item }} state=present
-        state: present
-        update_cache: true # Do it once for all
+      apt: name={{ item }} state=present update_cache=true
       with_items:
         - docker.io
         - python-pip
