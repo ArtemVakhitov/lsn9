@@ -13,8 +13,8 @@
 
 - name: Build the app
   command:
-  cmd: mvn package
-  chdir: "{{ build_root }}/boxfuse-sample-java-war-hello"
+    cmd: mvn package
+    chdir: "{{ build_root }}/boxfuse-sample-java-war-hello"
 
 - name: Copy Dockerfile
   copy:
