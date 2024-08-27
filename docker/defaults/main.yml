@@ -1,2 +1,3 @@
 ---
 # defaults file for docker
+image_name: artemvakhitov/lsn9
