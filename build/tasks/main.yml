@@ -8,13 +8,13 @@
 - name: Clone the boxfuse repo
   git:
     repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
-    dest: {{ build_root }}/boxfuse-sample-java-war-hello
+    dest: "{{ build_root }}/boxfuse-sample-java-war-hello"
     update: true
 
 - name: Build the app
   command:
   cmd: mvn package
-  chdir: {{ build_root }}/boxfuse-sample-java-war-hello
+  chdir: "{{ build_root }}/boxfuse-sample-java-war-hello"
 
 - name: Copy Dockerfile
   copy:
