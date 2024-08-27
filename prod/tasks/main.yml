@@ -11,4 +11,4 @@
   notify:
     - Stop Tomcat on the host
   register: result
-  failed_when: "Could not find the requested service tomcat9" not in result.stdout
+  failed_when: "Could not find the requested service tomcat9" not in result.stdout # Fail only when present
