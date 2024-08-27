@@ -8,5 +8,5 @@
     pull: true
     detach: true
     state: started
-    notify:
-      - Stop Tomcat on the host
+  notify:
+    - Stop Tomcat on the host
