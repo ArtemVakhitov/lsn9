@@ -1,2 +1,6 @@
 ---
 # handlers file for prod
+- name: Stop Tomcat on the host
+  service:
+    name: tomcat9
+    state: stopped # This may fail if Tomcat is absent but the playbook won't fail as a result
