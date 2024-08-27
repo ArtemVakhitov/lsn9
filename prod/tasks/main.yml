@@ -10,3 +10,4 @@
     state: started
   notify:
     - Stop Tomcat on the host
+  failed_when: "Could not find the requested service tomcat9" not in result.stdout
