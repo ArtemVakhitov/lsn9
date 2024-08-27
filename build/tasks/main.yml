@@ -2,7 +2,7 @@
 # tasks file for build
 - name: Ensure the build root directory is present
   file:
-    path: {{ build_root }}
+    path: "{{ build_root }}"
     state: directory
 
 - name: Clone the boxfuse repo
@@ -19,20 +19,20 @@
 - name: Copy Dockerfile
   copy:
     src: Dockerfile
-    dest: {{ build_root }}
+    dest: "{{ build_root }}"
 
 - name: Login to Docker Hub
   environment: # May be needed just in case here and below
     PYTHONPATH: "{{ lookup('env','PYTHONPATH') }}:/usr/local/lib/python2.7/dist-packages:/usr/local/lib/python2.7/site-packages"
   docker_login:
-    email: {{ docker_email }}
-    username: {{ docker_username }}
+    email: "{{ docker_email }}"
+    username: "{{ docker_username }}"
     password: "{{ lookup('env', 'DOCKER_PASSWORD') }}"
 
 - name: Build and push the Docker image
   environment:
     PYTHONPATH: "{{ lookup('env','PYTHONPATH') }}:/usr/local/lib/python2.7/dist-packages:/usr/local/lib/python2.7/site-packages"
   docker_image:
-    name: {{ image_name }}
+    name: "{{ image_name }}"
     push: true
-    path: {{ build_root }}
+    path: "{{ build_root }}"
