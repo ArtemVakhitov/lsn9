@@ -1,12 +1,12 @@
 ---
 # tasks file for docker
 - name: Ensure docker.io and pip packages are present
-    apt: name={{ item }} state=present update_cache=true
-    with_items:
-      - docker.io
-      - python-pip
+  apt: name={{ item }} state=present update_cache=true
+  with_items:
+    - docker.io
+    - python-pip
 
 - name: Ensure pip docker-py package is installed
-    pip:
-      name: docker-py
-      state: present
+  pip:
+    name: docker-py
+    state: present
