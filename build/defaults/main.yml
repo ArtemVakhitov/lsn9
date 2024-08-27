@@ -1,2 +1,5 @@
 ---
 # defaults file for build
+build_root: /tmp/hello
+docker_username: artemvakhitov
+docker_email: artem.vakhitov@gmail.com 
