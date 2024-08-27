@@ -3,7 +3,7 @@
 - name: Pull and run the Docker image of boxfuse
   docker_container:
     name: boxfuse
-    image: {{ image_name }}/lsn8:latest
+    image: {{ image_name }}:latest
     ports: 8080:8080
     pull: true
     detach: true
